@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Add Match') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('match.store') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -25,12 +25,12 @@
                             </div>
                         </div>
                            <div class="row mb-3">
-                            <label for="teamA" class="col-md-4 col-form-label text-md-end">{{ __('Team A Name') }}</label>
+                            <label for="team_a" class="col-md-4 col-form-label text-md-end">{{ __('Team A Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="teamA" type="text" class="form-control @error('teamA') is-invalid @enderror" name="teamA" value="{{ old('teamA') }}" required autocomplete="teamA" autofocus>
+                                <input id="team_a" type="text" class="form-control @error('team_a') is-invalid @enderror" name="team_a" value="{{ old('team_a') }}" required autocomplete="team_a" autofocus>
 
-                                @error('teamA')
+                                @error('team_a')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -38,12 +38,12 @@
                             </div>
                         </div>
                      <div class="row mb-3">
-                            <label for="teamB" class="col-md-4 col-form-label text-md-end">{{ __('Team B Name') }}</label>
+                            <label for="team_b" class="col-md-4 col-form-label text-md-end">{{ __('Team B Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="teamB" type="text" class="form-control @error('teamB') is-invalid @enderror" name="teamB" value="{{ old('teamB') }}" required autocomplete="teamB" autofocus>
+                                <input id="team_b" type="text" class="form-control @error('team_b') is-invalid @enderror" name="team_b" value="{{ old('team_b') }}" required autocomplete="team_b" autofocus>
 
-                                @error('teamB')
+                                @error('team_b')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -52,12 +52,12 @@
                         </div>
 
                  <div class="row mb-3">
-                            <label for="matchDate" class="col-md-4 col-form-label text-md-end">{{ __('Match Date') }}</label>
+                            <label for="match_date" class="col-md-4 col-form-label text-md-end">{{ __('Match Date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="matchDate" type="date" class="form-control @error('matchDate') is-invalid @enderror" name="matchDate" value="{{ old('matchDate') }}" required autocomplete="matchDate" autofocus>
+                                <input id="match_date" type="date" class="form-control @error('match_date') is-invalid @enderror" name="match_date" value="{{ old('match_date') }}" required autocomplete="match_date" autofocus>
 
-                                @error('matchDate')
+                                @error('match_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -65,10 +65,10 @@
                             </div>
                         </div>
                          <div class="row mb-3">
-                            <label for="matchDate" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
+                            <label for="status" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
  <div class="checkbox col-md-6">
-
-      <input type="checkbox"> Check me out
+     <input type="hidden" name="status" value="0">
+      <input type="checkbox" name="status"  value="1">
 
  </div>
                          </div>

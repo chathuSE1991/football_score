@@ -5,5 +5,7 @@ use App\Interfaces\BaseEloquentRepositoryInterface;
 
 interface MatchRepositoryInterface  extends BaseEloquentRepositoryInterface
 {
-  public function findTodo();
+  public function startMatch($id);
+  public function updateTeamScore(array $data);
+  public function endMatch($id);
 }

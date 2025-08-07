@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">List Match <a href="{{ route('match.create') }}" class="btn btn-primary  float-end" role="button">Add (+)</a></div>
+                <div class="card-header">List Match </div>
 
                 <div class="card-body">
                     <table class="table table-striped">
@@ -23,6 +23,7 @@
                         <th>TEAM B</th>
                          <th>DATE OF MATCH</th>
                          <th>STATUS</th>
+                         <th>ACTION</th>
                     </thead>
                     <tbody>
                         @foreach ($getMatch as $match)
@@ -48,6 +49,15 @@
 @endif
 
                         </td>
+                         <td>
+                              @if($match->is_live == 0)
+
+                            <button type="button" class="btn btn-success btn-sm" onclick="startMatch({{$match->id}})"> Start Match</button>
+                            @elseif($match->is_live == 1)
+                            <a href="{{ route('match_score.show', ['id' => $match->id]) }}" class="btn btn-primary btn-sm">Add Score</a>
+
+                        @endif
+                        </td>
                     </tr>
                   @endforeach
                     </tbody>
@@ -58,4 +68,30 @@
         </div>
     </div>
 </div>
+<script>
+    async function startMatch(id) {
+        try {
+            const url = `{{ url('matches/start') }}/${id}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            });
+
+            if (response.ok) {
+                window.location.href = "{{ url('matches/score/list') }}";
+            } else {
+                alert('Failed to start match');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while starting the match.');
+        }
+    }
+</script>
+
+
 @endsection

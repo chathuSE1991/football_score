@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MatcheScores extends Model
+class MatchScores extends Model
 {
-    protected $table = 'matche_scores';
+    protected $table = 'match_scores';
     protected $fillable = [
-        'matche_id',
+        'matches_id',
         'team_a_score',
         'team_b_score',
         'created_by',

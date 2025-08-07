@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-    Schema::create('matche_scores', function (Blueprint $table) {
+    Schema::create('match_scores', function (Blueprint $table) {
     $table->id();
-    $table->unsignedBigInteger('matche_id');
+    $table->unsignedBigInteger('matches_id');
     $table->integer('team_a_score');
     $table->integer('team_b_score');
     $table->unsignedInteger('created_by');
     $table->timestamps();
 
-    $table->foreign('matche_id')->references('id')->on('matches')->onDelete('cascade');
+    $table->foreign('matches_id')->references('id')->on('matches')->onDelete('cascade');
 });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('matche_scores');
+        Schema::dropIfExists('match_scores');
     }
 };
