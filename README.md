@@ -1,6 +1,6 @@
 # README
 
-This README document includes whatever steps are necessary to get the Tryo pm tool API up and running.
+This README document includes whatever steps are necessary to get the Football score app  up and running.
 
 
 ### Clone the repository
