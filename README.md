@@ -50,7 +50,7 @@ composer install
 ### Run the database migrations & seeder
 
 ```
-php artisan migrate:fresh --seed --seeder=DatabaseSeeder
+php artisan migrate:fresh --seed
 ```
 
 
